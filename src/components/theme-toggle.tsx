@@ -34,7 +34,7 @@ export function ThemeToggle() {
             aria-label={label}
             title={label}
             onClick={toggle}
-            className="inline-flex size-9 items-center justify-center rounded-md border border-secondary bg-primary text-tertiary shadow-xs transition-colors hover:bg-primary_hover hover:text-primary focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/40"
+            className="inline-flex size-9 items-center justify-center rounded-md text-tertiary transition-colors hover:bg-primary_hover hover:text-primary focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/40"
         >
             {/* Render a placeholder before hydration to avoid icon flash */}
             <Icon aria-hidden className="size-4" style={{ visibility: mounted ? "visible" : "hidden" }} />

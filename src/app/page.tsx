@@ -54,7 +54,8 @@ export default function Home() {
                             {/* Coming soon badge */}
                             <div className="inline-flex w-fit items-center gap-1.5 rounded-full border border-secondary bg-secondary py-1 pr-3 pl-2.5">
                                 <span aria-hidden className="relative flex size-2 items-center justify-center">
-                                    <span className="size-1.5 rounded-full bg-brand-solid" />
+                                    <span className="absolute inline-flex size-1.5 animate-ping rounded-full bg-brand-solid opacity-75" />
+                                    <span className="relative size-1.5 rounded-full bg-brand-solid" />
                                 </span>
                                 <span className="text-sm font-medium text-secondary">
                                     COMING SOON

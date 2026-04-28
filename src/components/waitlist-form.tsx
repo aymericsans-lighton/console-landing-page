@@ -5,8 +5,10 @@ import { AlertCircle, CheckCircle, Loading01, Send01 } from "@untitledui/icons";
 
 const HUBSPOT_PORTAL_ID = "143641506";
 const HUBSPOT_FORM_ID = "cd729346-7c21-46cc-85e7-5296b3f42ec2";
-// EU data center — matches the `js-eu1.hsforms.net` script in the original embed.
-const HUBSPOT_ENDPOINT = `https://api-eu1.hubapi.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
+// Public, CORS-enabled Forms Submissions API. Routes by portal ID regardless
+// of region (same URL works for US and EU portals). The HubSpot Forms embed
+// script that the user shared posts to this same endpoint under the hood.
+const HUBSPOT_ENDPOINT = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
