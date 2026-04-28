@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { Send01 } from "@untitledui/icons";
+import { ConsoleLogo } from "@/components/console-logo";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { WaitlistForm } from "@/components/waitlist-form";
 
 const features = [
     {
@@ -74,29 +76,8 @@ export default function Home() {
                                 your agents to all of your organization&apos;s data.
                             </p>
 
-                            {/* Waitlist form */}
-                            <form
-                                className="flex w-full max-w-[31rem] items-start gap-3 pt-1"
-                                action="#"
-                                aria-label="Join waitlist"
-                            >
-                                <label className="flex flex-1 flex-col gap-1.5">
-                                    <span className="sr-only">Email address</span>
-                                    <input
-                                        type="email"
-                                        required
-                                        placeholder="Type your email to join waitlist"
-                                        className="w-full rounded-md border border-primary bg-primary px-3.5 py-2.5 text-md text-primary shadow-xs outline-none placeholder:text-placeholder focus:border-brand focus:ring-2 focus:ring-brand/30"
-                                    />
-                                </label>
-                                <button
-                                    type="submit"
-                                    aria-label="Join waitlist"
-                                    className="relative flex shrink-0 items-center justify-center rounded-md border-2 border-white/12 bg-brand-solid p-3 text-white shadow-xs-skeuomorphic transition-colors hover:bg-brand-solid_hover focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/40"
-                                >
-                                    <Send01 className="size-5" />
-                                </button>
-                            </form>
+                            {/* Waitlist form — submits to HubSpot */}
+                            <WaitlistForm />
 
                             {/* Tags */}
                             <div className="flex flex-wrap gap-6 font-mono text-[13px] leading-[30px] tracking-wide text-tertiary uppercase">
@@ -110,11 +91,11 @@ export default function Home() {
                     </div>
 
                     {/* Endpoint cards */}
-                    <div className="grid w-full max-w-[60rem] grid-cols-1 gap-3 rounded-md shadow-xl md:grid-cols-3">
+                    <div className="grid w-full max-w-[60rem] grid-cols-1 gap-3 md:grid-cols-3">
                         {features.map((feature) => (
                             <article
                                 key={feature.endpoint}
-                                className="flex flex-col gap-4 rounded-md border border-secondary bg-primary py-5 pr-6 pl-5 md:pr-10"
+                                className="flex flex-col gap-4 rounded-md border border-secondary bg-primary py-5 pr-6 pl-5 shadow-xl md:pr-10"
                             >
                                 <h3 className="font-display text-display-sm font-normal text-primary">
                                     {feature.endpoint}
@@ -128,7 +109,7 @@ export default function Home() {
                     </div>
 
                     {/* Code snippet */}
-                    <div className="w-full max-w-[51.25rem] rounded-xl shadow-2xl">
+                    <div className="w-full max-w-[51.25rem] rounded-xl shadow-3xl">
                         <div className="overflow-hidden rounded-xl border border-[#22262f] bg-[#0c0e12]">
                             <pre className="overflow-x-auto rounded-t-xl border-b border-[#22262f] bg-[#13161b] p-5 font-mono text-sm leading-5">
                                 <code className="text-[#84caff]">
@@ -168,16 +149,13 @@ export default function Home() {
 
             <footer className="bg-secondary py-5">
                 <div className="mx-auto flex w-full max-w-container flex-col items-center justify-between gap-4 px-8 sm:flex-row">
-                    <Image
-                        src="/Logo Console.svg"
-                        alt="LightOn Console"
-                        width={90}
-                        height={24}
-                        priority
-                    />
-                    <p className="text-xs text-quaternary sm:text-right">
-                        © 2026 LightOn, Inc. Built in France · Hosted in Europe · SOC 2 · GDPR
-                    </p>
+                    <ConsoleLogo className="text-primary" />
+                    <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+                        <p className="text-xs text-quaternary sm:text-right">
+                            © 2026 LightOn, Inc. Built in France · Hosted in Europe · SOC 2 · GDPR
+                        </p>
+                        <ThemeToggle />
+                    </div>
                 </div>
             </footer>
         </>
